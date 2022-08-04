@@ -1,0 +1,18 @@
+QToolButton{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* QDockWiget -------------------------------------------------------------
+
+--------------------------------------------------------------------------- */
+
+
+QDockWidget::title{
+    background-color: lightblue;
+    text-align: center;
+    height: 12px;
+    padding: 3px;
+    spacing: 4px;
+}

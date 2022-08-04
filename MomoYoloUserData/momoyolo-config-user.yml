@@ -1,0 +1,173 @@
+#主题
+theme: 'normal'
+#theme: 'dark'
+#theme: 'gray'
+#theme: 'qdarkstyle'
+theme_setting:
+  icon_color: 'gray'
+  icon_color_active: 'orange'
+qta_dic:
+  mdi.application-settings: mdi.eye-settings
+#图片展示的宽（200～800）
+display_width: 800
+#图片展示的长（320～1280）
+display_height: 1280
+play_interval: 2 #自动播放间隔，单位为秒
+#show_debug: true
+show_debug: false
+# do_mode: 'do_train'
+do_mode: 'do_detect_pic'
+# do_mode: 'do_detect_video'
+# do_mode: 'do_gene_data'
+# do_mode: 'do_dist_data'
+# do_mode: 'show_pyqt'
+# do_mode: 'show_flask'
+# self_tr: true
+self_tr: false
+# run_check: true
+run_check: false
+# thread_method: 'queue'
+thread_method: 'concurrent'
+train:
+  batch_size: 4
+#   batch_size: 8
+#   batch_size: 16
+#   batch_size: 32
+  train_img_size: 640
+  evolve_const: 300
+#  weights_name: 'myolov5s300.pt'
+#  weights_name: 'myolov5s600.pt'
+#  weights_name: 'coco-yolov5s-best-90.pt'
+  weights_name: ''
+#  hyp_yml_stem: 'hyp.scratch'
+#  hyp_yml_stem: 'hyp.scratch-low'
+  hyp_yml_stem: 'hyp.custom'
+#   hyp_yml_stem: 'hyp.scratch.p5'
+  cfg_yml_stem: 'yolov5s'
+#   cfg_yml_stem: 'yolov7'
+#   cfg_yml_stem: 'deeplab_mobilenetv2'
+  conf_py_stem: 'yolov6s'
+  segcfg_yml_stem: 'segheads'
+#   data_yml_stem: 'coco128'
+#   data_yml_stem: 'Comic Bubble'
+#  data_yml_stem: 'Cottontail-Rabbits.v3-v3'
+#  data_yml_stem: 'Garbage.v4-original'
+#  data_yml_stem: 'Raccoon.v40i'
+#  data_yml_stem: 'Annotated Anime Faces Dataset'
+#   data_yml_stem: 'Pascal VOC 2012.v1-raw'
+  data_yml_stem: 'Genshin Impact Character'
+#   data_yml_stem: 'coco'
+#   data_yml_stem: 'VOC 2007'
+  dsdata_yml_stem: 'voc'
+  epochs: 300
+#   epochs: 400
+#  epochs: 60
+  max_batch: 6
+detect:
+    # model_stem: 'yolov5s'
+    # model_stem: 'myolov5s300'
+    # model_stem: 'myolov5s600'
+#     model_stem: 'cmb_5s_300_14M'
+    # model_stem: 'Garbage.v4-original-best'
+#     model_stem: 'Annotated Anime Faces Dataset-yolov5s-best'
+#     model_stem: 'Pascal VOC 2012.v1-raw-best'
+#     model_stem: 'Genshin Impact Character-yolov5s-best'
+#     model_stem: 'coco-yolov5s-best'
+#     model_stem: 'deeplab_mobilenetv2'
+#     model_stem: 'VOC 2007-deeplab_mobilenetv2-best'
+#     model_stem: 'yolodsvoc'
+    model_stem: 'Genshin Impact Character-yolov5s-last'
+    # imgsz: [640]
+    detect_imgsz: [832, 832]
+    conf_thres: 0.25
+    # conf_thres: 0.01
+    # conf_thres: 0.005
+    iou_thres: 0.45  # NMS IOU threshold
+    nms_classes:  # filter by class: --class 0, or --class 0 2 3
+    max_det: 1000  # maximum detections per image
+#    source_pic_dir_name: '垃圾'
+#    source_pic_dir_name: '测试'
+#    source_pic_dir_name: '美漫'
+    source_pic_dir_name: '原神'
+#     source_pic_dir_name: 'coco_test'
+#     source_pic_dir_name: '葬送的芙莉莲'
+#     source_video_dir_name: '原神视频'
+    source_video_dir_name: '第五人格视频'
+    ip: 'rtsp://admin:admin888@192.168.1.67:555'
+#     count: true
+    count: false
+generate:
+    go2func: true
+#     save_slice: true
+    save_slice: false
+#     go2func: false
+#     force_generate: true
+    force_generate: false
+#     parent_folder: 'Comic Bubble'
+    parent_folder: 'Genshin Impact Character'
+    dist_names:
+        - train
+        - valid
+        - test
+    valid_class_names:
+        - text block
+        - rectangle bubble
+        - comic bubble
+        - manga bubble
+        - bubble tail
+    comic_titles:
+        - DC Comics - Bombshells
+        - Die
+        - Drifter
+        - Eternal Empire
+        - Exorsisters
+        - Naomi
+        - Savior
+        - Suicide Risk
+        - Symmetry
+        - The Stone King
+dalle:
+  text: 'a comfy chair that looks like an avocado'
+  seed: 16
+  texts:
+    - 'a comfy chair that looks like a bus'
+    - 'a comfy chair that looks like a pigeon'
+    - 'a comfy chair that looks like an avocado'
+    - 'a baby daikon radish in a tutu walking a dog'
+    - 'sunflower under night sky'
+    - 'a cartoon bunny in a dress under night sky with an umbrella in her hand'
+    - 'alien life'
+    - 'a girl with curly hair and bright eye at a store'
+    - 'Ruby and her sister teasing each other'
+    - 'a dragon staring at a bowl of delicious meal'
+    - 'a bunny that looks like a person'
+    - 'a computer turned into stone'
+    - 'jazz cat'
+    - 'artificial intelligence'
+    - 'trail cam footage of gollum eating watermelon'
+    - 'a bear drinking a up of tea'
+    - 'a cat drinking coffee'
+    - 'Dali painting of WALL·E'
+    - 'Rusty Iron Man suit found abandoned in the woods being reclaimed by nature'
+    - 'court sketch of godzilla on trial'
+    - 'a funeral at Whole Foods'
+    - 'Jesus turning water into wine on Americas Got Talent'
+    - 'cctv footage of Yoda robbing a liquor store'
+  seeds:
+#     - 114514
+#     - 100
+#     - 4
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 40
+    - 50
+    - 60
+    - 70
+    - 80
+    - 90
+  mega: true
+#   tor: true
+  tor: false
