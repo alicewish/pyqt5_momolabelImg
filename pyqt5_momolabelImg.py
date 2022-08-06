@@ -4243,27 +4243,14 @@ class LabelImgWindow(QMainWindow):
 
     @logger.catch
     def scroll_request(self, h_delta, v_delta):
-        # TODO scroll_request
-        # loge(f'{h_delta=},{v_delta=}', 'debug')
+        h_units = - h_delta / (8 * 15)
+        v_units = - v_delta / (8 * 15)
 
-        if h_delta != 0:
-            orientation = Qt.Orientation.Horizontal
-            delta = h_delta
-        else:
-            orientation = Qt.Orientation.Vertical
-            delta = v_delta
+        h_bar = self.scroll_bars[Qt.Orientation.Horizontal]
+        v_bar = self.scroll_bars[Qt.Orientation.Vertical]
 
-        if SYSTEM == 'M1':
-            pass
-            # loge(f'{delta=},{orientation=}', 'debug')
-
-        units = - delta / (8 * 15)
-        # orientation属性缺省是水平方向（Qt.Horizontal,值为0x1），
-        # 可以使用orientation()、setOrientation(Qt.Orientation orientation)来访问，
-        # 垂直方向的为Qt.Vertical，值为0x2。
-        bar = self.scroll_bars[orientation]
-        # 移动相应距离
-        bar.setValue(int(bar.value() + bar.singleStep() * units))
+        h_bar.setValue(int(h_bar.value() + h_bar.singleStep() * h_units))
+        v_bar.setValue(int(v_bar.value() + v_bar.singleStep() * v_units))
 
     def set_zoom(self, value):
         self.actions.fitWidth.setChecked(False)
